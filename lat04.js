@@ -1,122 +1,96 @@
-function zodiac(bln, tgl) {
-    let hasil = "invalid input";
-    if (bln > 0 && bln < 13 && tgl > 0 && tgl < 32) {
-        hasil = "zodiac  null";
-        if (bln == 1 && tgl < 32) {
-            hasil = "capricorn";
-            if (tgl > 21) {
-                hasil = "aquarius";
-            }
-        }
-        if (bln == 2 && tgl < 30) {
-            hasil = "aquarius";
-            if (tgl > 18) {
-                hasil = "pisces";
-            }
+let tampil = document.querySelector("#belajar");
 
-        }
-        if (bln == 3 && tgl < 32) {
-            hasil = "pisces";
-            if (tgl > 21) {
-                hasil = "aries";
+// zodiak(2,30);
+
+
+function zodiac() {
+    let bulan = document.getElementsByName("bulan")[0].value;
+    let tanggal = document.getElementsByName("tanggal")[0].value;
+
+    let hasil = "invalid";
+    if (bulan > 0 && bulan < 13 && tanggal > 0 && tanggal < 32) {
+        hasil = "zodiak belum dibuat";
+        if (bulan == 1) {
+            hasil = "Capricorn";
+            if (tanggal > 21 && tanggal < 32) {
+                hasil = "Aquarius";
             }
         }
-        if (bln == 4 && tgl < 31) {
-            hasil = "aries";
-            if (tgl > 21 ) {
-                hasil = "taurus";
+
+        if (bulan == 2) {
+            hasil = "Aquarius";
+            if (tanggal > 18 && tanggal < 29) {
+                hasil = "Pisces";
             }
         }
-        if (bln == 5 && tgl < 32) {
-            hasil = "taurus";
-            if (tgl > 20) {
-                hasil = 'gemmini';
+
+        if (bulan == 3) {
+            hasil = "Pisces";
+            if (tanggal > 18 && tanggal < 32) {
+                hasil = "Aries";
             }
         }
-        if (bln == 6 && tgl < 31) {
-            hasil = "gemini";
-            if (tgl > 20) {
-                hasil = 'cancer';
+
+        if (bulan == 4) {
+            hasil = "Aries";
+            if (tanggal > 18 && tanggal < 31) {
+                hasil = "Taurus";
             }
         }
-        if (bln == 7 && tgl < 32) {
-            hasil = "cancer";
-            if (tgl > 20) {
-                hasil = 'leo';
-            }
-        }
-        if (bln == 8 && tgl < 32) {
-            hasil = "leo";
-            if (tgl > 20) {
-                hasil = 'virgo';
-            }
-        }
-        if (bln == 9 && tgl < 31) {
-            hasil = "virgo";
-            if (tgl > 20) {
-                hasil = 'libra';
-            } 
-        }
-        if (bln == 10&& tgl < 32) {
-            hasil = "libra";
-            if (tgl > 20) {
-                hasil = 'scorpio';
-            }
-        }
-        if (bln == 11 && tgl < 31) {
-            hasil = "scorpio";
-            if (tgl > 20) {
-                hasil = 'sagitarius';
-            }
-        }
-        if (bln == 12 && tgl < 32) {
-            hasil = "sagitarius";
-            if (tgl > 20) {
-                hasil = 'capricorn'
-            } 
-        }
-    }
-    console.log(hasil);
+    // console.log(hasil);
+
+    tampil.innerHTML=hasil;
+}
 }
 
-//TUGAS
+// ini PR dikumpulkan Minggu
+// function lulus(nilai) 
 
-function lulus(nilai) {
+function lulus() {
+    let nilai = document.getElementById("nilai").value;
     if (nilai >= 0 && nilai <= 100) {
         if (nilai >= 80) {
-            console.log('LULUS');
+            tampil.innerHTML= "LULUS";
         } else {
-            console.log("GK LULUS");
+            tampil.innerHTML= "GAGAL";
         }
     } 
 }
 
+// function terbilang(angka) 
+function konversi() {
+let angka = document.getElementById("number").value;
 function terbilang(angka) {
-    var bilne=["","satu","dua","tiga","empat","lima","enam","tujuh","delapan","sembilan","sepuluh","sebelas"];
-    if(angka < 12){
-        return bilne[angka];
-    }else if(angka < 20){
-        return terbilang(angka-10)+" belas";
-    }else if(angka < 100){
-        return terbilang(Math.floor(angka/10))+" puluh "+terbilang(angka%10);
-    }else if(angka < 200){
-        return "seratus "+terbilang(angka-100);
-    }else if(angka < 1000){
-        return terbilang(Math.floor(angka/100))+" ratus "+terbilang(angka%100);
-    }else if(angka < 2000){
-        return "seribu "+terbilang(angka-1000);
-    }else if(angka < 1000000){
-        return terbilang(Math.floor(angka/1000))+" ribu "+terbilang(angka%1000);
-    }else if(angka < 1000000000){
-        return terbilang(Math.floor(angka/1000000))+" juta "+terbilang(angka%1000000);
-    }else if(angka < 1000000000000){
-        return terbilang(Math.floor(angka/1000000000))+" milyar "+terbilang(angka%1000000000);
-    }else if(angka < 1000000000000000){
-        return terbilang(Math.floor(angka/1000000000000))+" trilyun "+terbilang(angka%1000000000000);
+        
+        var bilne=["","satu","dua","tiga","empat","lima","enam","tujuh","delapan","sembilan","sepuluh","sebelas"];
+        if(angka < 12){
+            return bilne[angka];
+        }else if(angka < 20){
+            return terbilang(angka-10)+" belas";
+        }else if(angka < 100){
+            return terbilang(Math.floor(angka/10))+" puluh "+terbilang(angka%10);
+        }else if(angka < 200){
+            return "seratus "+terbilang(angka-100);
+        }else if(angka < 1000){
+            return terbilang(Math.floor(angka/100))+" ratus "+terbilang(angka%100);
+        }else if(angka < 2000){
+            return "seribu "+terbilang(angka-1000);
+        }else if(angka < 1000000){
+            return terbilang(Math.floor(angka/1000))+" ribu "+terbilang(angka%1000);
+        }else if(angka < 1000000000){
+            return terbilang(Math.floor(angka/1000000))+" juta "+terbilang(angka%1000000);
+        }else if(angka < 1000000000000){
+            return terbilang(Math.floor(angka/1000000000))+" milyar "+terbilang(angka%1000000000);
+        }else if(angka < 1000000000000000){
+            return terbilang(Math.floor(angka/1000000000000))+" trilyun "+terbilang(angka%1000000000000);
+        }
     }
+    tampil.innerHTML= terbilang(angka);
 }
 
-function prima(num) {
+// function prima(bilangan) {
+    function prima() {
+        let num = document.getElementById("angka").value;
     let pembagi = 0;
     for (let i = 0; i <= num; i++) {
         if (num % i == 0) {
@@ -124,15 +98,14 @@ function prima(num) {
         }
     }
     if (pembagi == 2) {
-        return "Prima";
+        tampil.innerHTML = "Prima";
     } else {
-        return "Bukan Prima";
+        tampil.innerHTML = "Bukan Prima";
     }
 }
+// }
 
-//Panggil function
-
-console.log(terbilang(3000000000));
-lulus(80);
-zodiac(12, 29);
-console.log(prima(3));  
+// console.log(terbilang(20));
+// lulus(80);
+// zodiak(11, 23);
+// console.log(prima(3));
